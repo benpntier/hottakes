@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
 
@@ -21,5 +22,6 @@ const sauceRoutes = require('./routes/sauce');
 
 app.use('/api/sauces', sauceRoutes);
 app.use('/api/auth', userRoutes);
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = app;
