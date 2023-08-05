@@ -1,5 +1,8 @@
 const jwt = require('jsonwebtoken');
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
+const dotenv = require('dotenv');
+dotenv.config();
 
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
@@ -10,7 +13,9 @@ exports.signup = (req, res, next) => {
         });
         user.save()
           .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
-          .catch(error => res.status(400).json({ error: error }));
+          .catch(error => {console.log("erreur 400", error);
+                           return(res.status(400).json({ error: error }));
+                          });
       })
       .catch(error => res.status(500).json({ error: error }));
 };
@@ -30,7 +35,7 @@ exports.login = (req, res, next) => {
                         userId: user._id,
                         token: jwt.sign(
                             { userId: user._id },
-                            'RANDOM_TOKEN_SECRET',
+                            process.env.TOKEN_KEY,
                             { expiresIn: '24h' }
                         )
                     });
@@ -39,3 +44,9 @@ exports.login = (req, res, next) => {
         })
         .catch(error => res.status(500).json({ error }));
  };
+
+ exports.test = (req, res, next) => {
+    res.status(200).json({
+        prop: 1
+    })
+ }
