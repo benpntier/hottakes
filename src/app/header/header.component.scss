@@ -1,7 +1,12 @@
 nav {
+  width: 100%;
+  background-color: #fff6f6;
+}
+
+.nav-content {
+  max-width: 1400px;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1400px;
   margin: auto;
   position: relative;
   top: 0;
@@ -9,7 +14,8 @@ nav {
   display: flex;
   padding: 20px;
   justify-content: space-between;
-  border-bottom: thin solid black;
+  //border-bottom: thin solid black;
+  font-family: 'Quando', serif;
 }
 
 h1 {
@@ -19,7 +25,7 @@ h1 {
 }
 
 h5 {
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: 400;
   margin: 0;
 }
@@ -63,16 +69,20 @@ li {
 }
 
 a {
-  color: black;
   font-weight: 400;
   text-decoration: none;
   cursor: pointer;
+}
+
+a, a:not([href]):not([class]) {
+  color: #c13d3d;
+  transition: color .3s;
   &:hover {
-    text-decoration: underline;
+    color: black;
   }
 }
 
 .active {
   font-weight: 700;
-  text-decoration: underline;
+  //text-decoration: underline;
 }

@@ -1,14 +1,30 @@
 .sauce-container {
   display: flex;
+  padding: 40px 20px;
   img {
-    max-height: 70vh;
-    flex: 1;
+    max-width: 200px;
+    max-height: 250px;
   }
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .sauce-info {
-  padding: 40px 20px;
+  padding-left: 20px;
   flex: 1;
+
+  h1 {
+    font-family: 'Quando', serif;
+    font-weight: bold;
+  }
+
+  .heat {
+    margin-top: 8px;
+  }
+
+  .description {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
 }
 
 .manufacturer {
@@ -19,12 +35,24 @@
   margin: 0;
 }
 
+.heat-icon {
+  height: 18px;
+  vertical-align: text-top;
+  margin-right: 8px;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
 .like-buttons {
   display: flex;
   i {
     margin-right: 0.5em;
     cursor: pointer;
   }
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .likes, .dislikes {
@@ -32,23 +60,23 @@
 }
 
 .liked {
-  color: rgba(51, 219, 0, 1);
+  color: #48c265;
 }
 
 .disliked {
-  color: rgba(219, 51, 0, 1);
+  color: #e54848;
 }
 
 .like {
   &:hover {
-    color: rgba(51, 219, 0, 1);
+    color: #48c265;
   }
 }
 
 .dislike {
   transform: scaleX(-1) translateY(5px);
   &:hover {
-    color: rgba(219, 51, 0, 1);
+    color: #e54848;
   }
 }
 
@@ -64,4 +92,22 @@
   button {
     margin: 1em 1em 0 0;
   }
+
+  .mat-raised-button {
+    background-color: rgba(0,0,0,.05);
+  }
+
+  .mat-raised-button.mat-warn {
+    background-color: #e54848;
+  }
+
+  .mat-raised-button.mat-primary {
+    background-color: #e9b413;
+  }
+  
+  .mat-raised-button.mat-button-disabled.mat-button-disabled {
+    background-color: rgba(0,0,0,.12);
+  }
 }
+
+

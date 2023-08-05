@@ -3,6 +3,10 @@ form {
   max-width: 750px;
 }
 
+form div {
+  margin-bottom: 10px;
+}
+
 .heat-range {
   width: 60%;
   display: block;
@@ -20,4 +24,13 @@ form {
 
 input[type="file"] {
   display: none;
+}
+
+.mat-raised-button.mat-primary {
+  margin-top: 10px;
+  background-color: #e9b413;
+}
+
+.mat-raised-button.mat-button-disabled.mat-button-disabled {
+  background-color: rgba(0,0,0,.12);
 }

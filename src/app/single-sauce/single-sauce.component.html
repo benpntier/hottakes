@@ -4,7 +4,8 @@
   <div class="sauce-info">
     <h1 class="sauce-name">{{ sauce?.name }}</h1>
     <p class="manufacturer">by {{ sauce?.manufacturer }}</p>
-    <h3>Description</h3>
+    <p class="heat"><img alt="Heat" class="heat-icon" src="../../assets/images/heat-icon.png"> <b>{{ sauce.heat }}</b>/10</p>
+    <h6 class="description">Description</h6>
     <p>{{ sauce.description }}</p>
     <div class="like-buttons" *ngIf="!likePending">
       <div class="likes">
@@ -21,7 +22,7 @@
     </div>
     <div class="control-buttons">
       <button mat-raised-button (click)="onBack()">BACK</button>
-      <button mat-raised-button color="primary" (click)="onModify()" *ngIf="userId === sauce.userId">MODIFY</button>
+      <button mat-raised-button color="primary" (click)="onModify()" *ngIf="userId === sauce.userId">UPDATE</button>
       <button mat-raised-button color="warn" (click)="onDelete()" *ngIf="userId === sauce.userId">DELETE</button>
     </div>
   </div>

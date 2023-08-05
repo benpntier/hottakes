@@ -1,4 +1,5 @@
 .sauce-list {
+  margin-top: 40px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -7,16 +8,27 @@
 .sauce-list-item {
   text-align: center;
   width: 220px;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   img {
     max-width: 200px;
     max-height: 250px;
   }
   h4 {
     margin: 0;
-    font-weight: 500;
+    font-weight: bold;
+    font-family: 'Quando', serif;
+    font-size: 1.2em;
   }
   p {
     margin: 0;
+    padding-top: 3px;
+    .heat-icon {
+      height: 18px;
+      vertical-align: text-top;
+      margin-right: 8px;
+    }
   }
   transition: all 0.1s ease-in-out;
   cursor: pointer;
@@ -29,4 +41,9 @@
 .list-title {
   text-align: center;
   margin: 2em auto;
+}
+
+.no-sauces {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin-top: 45px;
 }
