@@ -1,27 +1,21 @@
 # HotTakes
+### OpenClassrooms P6 - Construisez une API sécurisée pour une application d'avis gastronomiques
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
+**HotTakes** est une application web de critique des sauces piquantes, développée par la marque de condiments à base de piment *Piiquante*. Les sauces piquantes sont de plus en plus populaires, en grande partie grâce à la série YouTube *"Hot Ones"*, cette application serait donc une "galerie de sauces" permettant aux utilisateurs de télécharger leurs sauces piquantes préférées et de liker ou disliker les sauces partagées par les membres de sa communauté. Le **front-end** de l'application a été développé à l'aide d'**Angular** et a été précompilé après des tests internes, l'objectif de ce projet est donc de **construire l'API** de la partie **back-end**.
 
-## Development server
+## Spécifications de l'API
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* POST `/api/auth/signup` : Création d'un utilisateur, hashage de son mot de passe et ajout à la base de données
+* POST `/api/auth/login` : Identification d'un utilisateur, vérification de ses informations et création d'un token d'authentification
+* GET `/api/sauces` : Renvoie un tableau de toutes les sauces de la base de données
+* GET `/api/sauces/:id` : Renvoie une sauce avec l'identifiant fourni
+* POST `/api/sauces` : Création d'une sauce, capture son image, initialise les likes/dislikes et ajout à la base de données
+* PUT `/api/sauces/:id` : Met à jour la sauce avec l'identifiant fourni
+* DELETE `/api/sauces/:id` : Supprime la sauce avec l'identifiant fourni
+* POST `/api/sauces/:id/like` : Ajoute un like, un dislike ou enlève un like/dislike
 
-## Code scaffolding
+## Exigences de sécurité
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Le mot de passe de chaque utilisateur est hashé
+* L'authentification est renforcée sur toutes les routes sauce requises
+* Les adresses e-mail dans la base de données sont uniques
