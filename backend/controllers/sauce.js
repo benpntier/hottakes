@@ -91,16 +91,16 @@ exports.likeDislikeSauce = (req, res, next) => {
                         Sauce.updateOne(
                             { _id: req.params.id },
                             { $pull: {usersLiked: req.body.userId},
-                            $inc: {likes: -1} }
+                              $inc: {likes: -1} }
                         )
                         .then(() => res.status(200).json({message: 'Removed like!'}))
                         .catch(error => res.status(400).json({ error }));
                     }
                     if (sauce.usersDisliked.includes(req.body.userId)){
                         Sauce.updateOne(
-                            {_id: req.params.id}, 
-                            {$pull: {usersDisliked: req.body.userId},
-                            $inc: {dislikes: -1}}
+                            { _id: req.params.id}, 
+                            { $pull: {usersDisliked: req.body.userId},
+                              $inc: {dislikes: -1}}
                         )
                         .then(() => res.status(200).json({message: 'Removed dislike!'}))
                         .catch(error => res.status(400).json({ error }));
