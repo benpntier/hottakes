@@ -1,6 +1,8 @@
 # HotTakes
 ### OpenClassrooms P6 - Construisez une API sécurisée pour une application d'avis gastronomiques
 
+![Banner](hottakes-banner.png)
+
 **HotTakes** est une application web de critique des sauces piquantes, développée par la marque de condiments à base de piment *Piiquante*. Les sauces piquantes sont de plus en plus populaires, en grande partie grâce à la série YouTube *"Hot Ones"*, cette application serait donc une "galerie de sauces" permettant aux utilisateurs de télécharger leurs sauces piquantes préférées et de liker ou disliker les sauces partagées par les membres de sa communauté. Le **front-end** de l'application a été développé à l'aide d'**Angular** et a été précompilé après des tests internes, l'objectif de ce projet est donc de **construire l'API** de la partie **back-end**.
 
 ## Spécifications de l'API
