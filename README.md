@@ -19,3 +19,6 @@
 * Le mot de passe de chaque utilisateur est hashé
 * L'authentification est renforcée sur toutes les routes sauce requises
 * Les adresses e-mail dans la base de données sont uniques
+
+![Screenshot](desktop.png)
+*Produits extraits de [sauce-piquante.fr](https://www.sauce-piquante.fr), police du logo \: [Magilio](https://www.behance.net/gallery/119990601/Magilio-A-Chic-Serif-Fonts)*
