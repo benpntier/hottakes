@@ -100,7 +100,7 @@ exports.likeDislikeSauce = (req, res, next) => {
                         Sauce.updateOne(
                             { _id: req.params.id}, 
                             { $pull: {usersDisliked: req.body.userId},
-                              $inc: {dislikes: -1}}
+                              $inc: {dislikes: -1} }
                         )
                         .then(() => res.status(200).json({message: 'Removed dislike!'}))
                         .catch(error => res.status(400).json({ error }));
