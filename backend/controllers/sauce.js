@@ -108,21 +108,29 @@ exports.likeDislikeSauce = (req, res, next) => {
     switch (req.body.like) {
         // like une sauce
         case 1:
-            // mettre à jour la sauce
-            Sauce.updateOne(
-                { _id: req.params.id },
-                { $push: {usersLiked: req.body.userId}, // ajouter l'ID de l'user qui like
-                  $inc: {likes: +1} } // incrémenter le nombre de likes
-            )
-                .then(() => res.status(200).json({message: 'Liked!'}))
-                .catch(error => res.status(400).json({ error }));
+            Sauce.findOne({_id: req.params.id})
+                .then((sauce) => {
+                    // si l'utilisateur n'a pas déjà dislike la sauce
+                    if (!sauce.usersDisliked.includes(req.body.userId)){
+                        // mettre à jour la sauce
+                        Sauce.updateOne(
+                            { _id: req.params.id },
+                            { $push: {usersLiked: req.body.userId}, // ajouter l'ID de l'user qui like
+                            $inc: {likes: +1} } // incrémenter le nombre de likes
+                        )
+                            .then(() => res.status(200).json({message: 'Liked!'}))
+                            .catch(error => res.status(400).json({ error }));
+                    } else {
+                        res.status(406).json({message: 'Unauthorised!'})
+                    }
+                })
             break;
 
         // enlever un like ou un dislike
         case 0:
             Sauce.findOne({_id: req.params.id})
                 .then((sauce) => {
-                    // enlenver un like
+                    // enlever un like
                     if (sauce.usersLiked.includes(req.body.userId)){
                         // mettre à jour la sauce
                         Sauce.updateOne(
@@ -150,14 +158,22 @@ exports.likeDislikeSauce = (req, res, next) => {
 
         // dislike une sauce
         case -1:
-            // mettre à jour la sauce
-            Sauce.updateOne(
-                { _id: req.params.id }, 
-                { $push: {usersDisliked: req.body.userId}, // ajouter l'id de l'utilisateur qui dislike
-                  $inc: {dislikes: +1} } // incrémenter le nombre de dislikes
-            )
-                .then(() => res.status(200).json({message: 'Disliked!'}))
-                .catch(error => res.status(400).json({ error }));  
+            Sauce.findOne({_id: req.params.id})
+            .then((sauce) => {
+                // si l'utilisateur n'a pas déjà like la sauce
+                if (!sauce.usersLiked.includes(req.body.userId)){
+                    // mettre à jour la sauce
+                    Sauce.updateOne(
+                        { _id: req.params.id }, 
+                        { $push: {usersDisliked: req.body.userId}, // ajouter l'id de l'utilisateur qui dislike
+                        $inc: {dislikes: +1} } // incrémenter le nombre de dislikes
+                    )
+                        .then(() => res.status(200).json({message: 'Disliked!'}))
+                        .catch(error => res.status(400).json({ error }));
+                } else {
+                    res.status(406).json({message: 'Unauthorised!'})
+                }
+            })
             break;
         
         // erreur
