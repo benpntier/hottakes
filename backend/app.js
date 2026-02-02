@@ -15,7 +15,7 @@ const app = express();
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // connexion à la base de données
-mongoose.connect('mongodb+srv://'+process.env.DB_NAME+':'+process.env.DB_PSSWRD+'@cluster0.wntigea.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://'+process.env.DB_NAME+':'+process.env.DB_PSSWRD+'@cluster0.webpibt.mongodb.net/?appName=Cluster0',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
